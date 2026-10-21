@@ -57,6 +57,7 @@ import org.eclipse.ui.part.ViewPart;
 
 import io.openliberty.tools.eclipse.DevModeOperations;
 import io.openliberty.tools.eclipse.DevModeOperations.ProjectAggregatedState;
+import io.openliberty.tools.eclipse.server.logs.LogMenu;
 import io.openliberty.tools.eclipse.logging.Trace;
 import io.openliberty.tools.eclipse.messages.Messages;
 import io.openliberty.tools.eclipse.model.ProjectModel;
@@ -547,6 +548,8 @@ public class DashboardView extends ViewPart {
                 ErrorHandler.processErrorMessage(Messages.getMessage("project_not_gradle_or_maven", projectName), true);
                 return;
             }
+
+            LogMenu.contribute(mgr, projectModel);
         }
     }
 
